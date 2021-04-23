@@ -1,0 +1,141 @@
+<html lang="en">
+    <head>
+    {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- google fonts -->
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+        <!-- end google font -->
+
+        <title>{% block title %}{% endblock %}</title>
+        <!-- bootstrap css -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <!-- end boostrap -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/blog.css' %}">
+
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/jpeg" href="{% static 'core/img/logo.png' %}">
+
+        <!-- font awesome  -->
+        <script src="https://kit.fontawesome.com/57ec8632ff.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <!-- start navbar -->
+        <nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark ">
+            <!-- <a class="navbar-brand" href="#">Guia del Importador</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul id="text" class="navbar-nav">
+                    <li  class="nav-item active">
+                    <a class="nav-link" href="{% url 'blog:home' %}">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'faq' %}">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Temas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'come_back_soon' %}">Aduanas</a>
+                        <a class="dropdown-item" href="{% url 'come_back_soon' %}">Logistica</a>
+                        <a class="dropdown-item" href="{% url 'come_back_soon' %}">Proveedores</a>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- end navbar -->
+
+        <!-- start titulo -->
+      
+                <div class="titulo">
+                    <h1 >Aprenda a importar de china</h1>
+                    <div style="font-size: 20px;font-family: 'Raleway', sans-serif; " >Bienvenidos a la Guia del importador </div>
+
+                </div>
+            
+        <!-- end titulo -->
+
+        {% block content %}
+        {% endblock %}
+
+
+
+        <!-- start footer -->
+        <div id="colorFooter" class="container-fluid d-flex justify-content-around">
+            <h5>
+                Guia Del Importador ‧ Todos los derechos reservados ® 2021
+            </h5>
+
+            <p class="m-0 d-flex">
+                {% if LINK_YOUTUBE %}
+                <a href="{{LINK_YOUTUBE}}" class="link">
+                    <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                {% endif %}
+                {% if LINK_TWITER %}
+                <a href="{{LINK_TWITER}}" class="link">
+                    <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                {% endif %}
+                {% if LINK_FACEBOOK %}
+                <a href="{{LINK_FACEBOOK}}" class="link">
+                    <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                {% endif %}
+                {% if LINK_INSTAGRAM %}
+                <a href="{{LINK_INSTAGRAM}}" class="link">
+                    <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                {% endif %}
+            </p>
+            
+            <ul class="navbar-nav " >
+                <li class="nav-item ">
+                    {% load pages_extras %}
+                    {% get_page_list as page_list %}
+                    {% for page in page_list %}
+                        <a class="" href="{% url 'page' page.id %}">{{page.title}} {% if not forloop.last%}·{% endif %}</a>
+                    {% endfor %}
+                    </li>
+                </ul>
+        </div>
+
+
+
+
+        <!-- bootstrap js -->
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <!-- end boostrap -->
+                
+    </body>
+</html>

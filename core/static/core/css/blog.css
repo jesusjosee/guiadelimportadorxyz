@@ -1,0 +1,41 @@
+
+
+.parrafo-negrita{
+    font-weight: bold;
+}
+.date { 
+    color:#ccc;
+    font-family: georgia, serif;
+    font-size: 12px;
+    font-style: italic; 
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+}
+
+.link-pagina{
+    text-decoration:underline;
+    color: blue;
+}
+
+.parrafo-color{
+    background-color: rgb(177, 233, 25);
+    border-radius: 5px;
+    padding: 10px;
+    color: fff;
+    font-weight: 600;
+}
+
+
+@media screen and (min-width:768px){
+  
+    .parrafo{
+        margin-left: 50px;
+        margin-right: 50px;
+        text-align: justify;
+        font-size: 25px;
+    }
+   
+} 

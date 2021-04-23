@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}{{post.title}}{% endblock %}
+
+{% block content %}
+        <!-- start body -->
+        <div class=" blog ">
+            <!-- start main -->
+            <div class="entrys ">
+                
+                  <!-- start Tercera entrada -->
+                    <div class="card my-3 shadow">
+                        {% if post.image %}
+                        <img class="card-img-top tamaño" src="{{post.image.url}}" alt="">
+                        {% endif %}
+                        <div class="card-body">
+                            <div class="card-title"><h1>{{post.title}}</h1></div>
+                            <div class="card-text">
+                                {{post.body | safe }}
+
+                            </div>
+                            <br>
+                            <div class="date">Publicado el {{post.publish}} por {{post.author}}</div>
+                        </div>
+                    </div>
+                    <!-- end tercera entrada -->
+                   
+
+            </div>               
+            <!-- end main -->
+
+
+            <!-- start sidebar -->
+                <!-- start entradas -->
+                <div class="sidebar my-3">
+                    <div class="card shadow d-flex flex-column ">
+                        <div class=" titulo-sidebar d-flex justify-content-center" >
+                            <h4 class="">Entradas Populares</h4>
+                        </div >
+                        <div class="font-weight-light">                            
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Importaciones</a>
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Aduanas</a>
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Impuestos</a>
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Proveedores</a>
+
+                        </div>
+                    </div>
+
+                    <!-- start etiquestas -->
+                    <div class="card my-2 shadow">
+                        <div class=" titulo-sidebar d-flex justify-content-center" >
+                            <h4 class="">Etiquetas</h4>
+                        </div >
+                        <div class="font-weight-light">
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Importaciones</a>
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Aduanas</a>
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Impuestos</a>
+                            <a class=" etiquetas cuerpo link" href="{% url 'come_back_soon' %}">Proveedores</a>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end sidebar -->
+
+        </div>
+        <!-- end body -->
+      
+{% endblock %}
+
+        
